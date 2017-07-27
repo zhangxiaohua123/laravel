@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="哎家装" />
+    <meta name="Description" content="哎家装" />
+	<title>哎家装</title>
+	<link rel="stylesheet" href="/static/index/css/base.css" />
+	<link rel="stylesheet" href="/static/index/css/ajiazhuang.css" />
+</head>
+<body>
+	<div>
+		<div id="contentWrap" class="clearfix">
+			<!-- 左边导航部分 -->
+			{include file="public/left"}
+
+			<!-- 中间内容部分 -->
+			<div id="middlePart" class="left">
+				<a class="topAd" href=""><img src="/static/index/images/head.jpg" alt="家装节"/></a>
+				<div class="newsBox boxSizing">
+					<div class="news contentBox">
+						<h2 class="newsTitle">博主简介</h2>
+						<!-- <div class="newsTime">时间：<span class="time">2017-03-27</span>查看：<span class="watchNum">64871</span></div> -->
+						<div class="newsInfo newsContent">
+							{$blogger.content}
+						</div>
+						<!-- 分享 -->
+                        <div class="share-platform clearfix">
+                        	<div class="left shareTitle">分享到：</div>
+	                		<div class="left">
+		                        <div class="bdsharebuttonbox">
+		                            <!-- <a href="#" class="bds_more" data-cmd="more"></a> -->
+		                            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+		                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+		                            <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给QQ好友"></a>
+		                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+		                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+		                        </div>
+	                        </div>
+                        </div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 右边部分 -->
+			<div id="rightPart" class="left">
+				<div>
+					<h2 class="listTitle boxSizing">站内搜索</h2>
+					<div class="searchBox boxSizing clearfix">
+						<input type="text" name="searchInput" id="searchInput" class="boxSizing left" placeholder="输入关键词" />
+						<span class="searchBtn right">搜索</span>
+					</div>
+				</div>
+				<div>
+					<h2 class="listTitle boxSizing">博主推荐</h2>
+					<div class="listContent boxSizing">
+					{volist name="xwisvouch" id="vo"}
+						<a class="newsList" href="{:url('index/News/news_show','url='.$vo['xw_url'])}">{$vo.title}</a>
+					{/volist}
+					</div>
+				</div>
+				<div>
+					<h2 class="listTitle boxSizing">热门相册</h2>
+					<div class="hotImg">
+						<a href="{:url('index/Photo/photo_show','url='.$xchits['xc_url'])}"><img src="{$xchits.imgsrc}" alt="热门相册"/></a>
+						<p class="hotTitle">{$xchits.title}</p>
+					</div>
+				</div>
+				<div>
+					<h2 class="listTitle boxSizing">热门新闻</h2>
+					<div class="listContent boxSizing">
+					{volist name="xwhits" id="vo"}
+						<a class="newsList" href="{:url('index/News/news_show','url='.$vo['xw_url'])}">{$vo.title}</a>
+					{/volist}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部 -->
+		{include file="public/footer"}
+
+	</div>
+
+	<script type="text/javascript" src="/static/index/js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="/static/index/js/index.js"></script>
+	<script>
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "分享哎家装",
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": "",
+                "bdStyle": "0",
+                "bdSize": "24"
+            },
+            "share": {}
+        };
+        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</body>
+</html>

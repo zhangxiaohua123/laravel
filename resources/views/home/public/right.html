@@ -1,0 +1,14 @@
+<div>
+	<h2 class="listTitle boxSizing">站内搜索</h2>
+	<div class="searchBox boxSizing clearfix">
+	<form  method="post"  action="{:url('index/News/search')}" >
+		<input type="text" name="searchInput" value="" id="searchInput" class="boxSizing left" placeholder="输入关键词" />
+		<span class="searchBtn right" onclick="search()">搜索</span>
+	</form>
+	</div>
+</div>
+<script type="text/javascript">
+	function search(){
+		$('form').submit();
+	}
+</script>

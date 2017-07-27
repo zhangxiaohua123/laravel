@@ -1,0 +1,38 @@
+<div id="leftPart" class="left">
+        <div class="logo">
+          <img src="/static/index/images/logo.png" alt="哎家装"/>
+          <p>分享知识</p>
+        </div>
+        <div class="leftNav">
+          <ul>
+            <li class="nav_list">
+              <a class="clearfix boxSizing" href="{:url('index/Index/index')}">
+                <span class="index_icon icons left"></span>
+                <span class="navText left">网站首页</span>
+              </a>
+            </li>
+            <li class="nav_list">
+              <a class="clearfix boxSizing" href="{:url('index/News/news_list')}">
+                <span class="news_icon icons left"></span>
+                <span class="navText left">新闻大全</span>
+              </a>
+              <ul>
+              {volist name="fllist" id="vo"}
+                <li class="nav_list">
+                  <a class="clearfix boxSizing" href="{:url('index/News/classify','url='.$vo['fl_url'])}">
+                    <span class="child_icon left">·</span>
+                    <span class="navText childText left">{$vo.name}</span>
+                  </a>
+                </li>
+              {/volist}
+              </ul>
+            </li>
+            <li class="nav_list">
+              <a class="clearfix boxSizing" href="{:url('index/Photo/photo_list')}">
+                <span class="photo_icon icons left"></span>
+                <span class="navText left">家装相册</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>

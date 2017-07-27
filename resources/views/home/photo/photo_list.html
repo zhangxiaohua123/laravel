@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="哎家装" />
+    <meta name="Description" content="哎家装" />
+	<title>哎家装</title>
+	<link rel="stylesheet" href="/static/index/css/base.css" />
+	<link rel="stylesheet" href="/static/index/css/ajiazhuang.css" />
+</head>
+<body>
+	<div>
+		<div id="contentWrap" class="clearfix">
+			<!-- 左边导航部分 -->
+			{include file="public/left"}
+
+			<!-- 中间内容部分 -->
+			<div id="middlePart" class="left">
+				<a class="topAd" href=""><img src="/static/index/images/head.jpg" alt="家装节"/></a>
+				<div class="newsBox boxSizing">
+				{volist name="res" id="vo"}
+					<div class="news">
+						<h2 class="newsTitle clearfix">
+							<a class="left" href="{:url('index/Photo/photo_show','url='.$vo['xc_url'])}">{$vo.title}</a>
+							<span class="right tuji">图集</span>
+						</h2>
+						<div class="newsTime">时间：<span class="time">{$vo.add_time|date="Y-m-d",###}</span>查看：<span class="watchNum">{$vo.hits}</span></div>
+						<div class="newsInfo">
+							<a class="clearfix" href="{:url('index/Photo/photo_show','url='.$vo['xc_url'])}">
+							{volist name="$vo.imgsrc" id="vol" }
+								<img class="left" src="{$vol}" alt="人们口中常说的禾香板"/>
+							{/volist}
+							</a>
+						</div>
+					</div>
+					{/volist}
+
+					<!-- 页码 -->
+					<div class="pagesBox">
+				        <div class="clearfix">
+				        {$page}
+					        <!-- <input type="button" id="first_btn" class="pageBtn left" value="首页" />
+					        <input type="button" id="" class="pageOn pageBtn left" value="1" />
+					        <input type="button" id="" class="pageBtn left" value="2" />
+					        <input type="button" id="next_btn" class="pageBtn left" value="下一页" />
+					        <input type="button" id="last_btn" class="pageBtn left" value="末页" />
+					        <select name="pageChoose" id="pageChoose" class="left">
+					        	<option value="">1</option>
+					        </select>
+					        <span id="pageCount" class="left">共<span>2</span>页<span>19</span>条</span> -->
+				        </div>
+				    </div>
+				</div>
+
+			</div>
+
+			<!-- 右边部分 -->
+			<div id="rightPart" class="left">
+				{include file="public/right" /}
+				<div>
+					<h2 class="listTitle boxSizing">博主简介</h2>
+					<div class="listContent boxSizing">
+						<p>{$blogger.content}</p>
+						<a class="watchMore" href="{:url('index/About/blogger_show')}">阅读全文</a>
+					</div>
+				</div>
+				<div>
+					<h2 class="listTitle boxSizing">热门相册</h2>
+					<div class="hotImg">
+						<a href="{:url('index/Photo/photo_show','url='.$xchits['xc_url'])}"><img src="{$xchits.imgsrc}" alt="热门相册"/></a>
+						<p class="hotTitle">{$xchits.title}</p>
+					</div>
+				</div>
+				<div>
+					<h2 class="listTitle boxSizing">热门新闻</h2>
+					<div class="listContent boxSizing">
+						{volist name="xwhits" id="vo"}
+						<a class="newsList" href="{:url('index/News/news_show','url='.$vo['xw_url'])}">{$vo.title}</a>
+					{/volist}
+					</div>
+				</div>
+				<div>
+					<h2 class="listTitle boxSizing">博主推荐</h2>
+					<div class="listContent boxSizing">
+						{volist name="xwisvouch" id="vo"}
+						<a class="newsList" href="{:url('index/News/news_show','url='.$vo['xw_url'])}">{$vo.title}</a>
+					{/volist}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 底部 -->
+		{include file="public/footer"}
+	</div>
+
+	<script type="text/javascript" src="/static/index/js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="/static/index/js/index.js"></script>
+</body>
+</html>
