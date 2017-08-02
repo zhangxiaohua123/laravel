@@ -15,4 +15,8 @@ class IndexController   extends  Controller
       echo '测试git';
   }
 
+  public  function   test(){
+      echo '8.2号git测试';
+  }
+
 }
